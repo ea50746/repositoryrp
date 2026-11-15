@@ -55,14 +55,14 @@ Prirejeno po:
 
 \section{Uvod}
 
-% \begin{definicija}
+ \begin{definicija}
    \emph{Magični kvadrat} reda \(n\) je nabor \(n^2\) različnih števil,
    ki so razvrščena v kvadratno tabelo tako, da vedno dobimo enako vsoto,
    če seštejemo vsa števila poljubne vrstice, vsa števila poljubnega
    stolpca ali vsa števila v katerikoli od glavnih diagonal.
-% \end{definicija}
+\end{definicija}
 
-Primer magičnega kvadrata reda 3 je prikazan v tabeli ??. % sklic: table:mag3
+Primer magičnega kvadrata reda 3 je prikazan v tabeli \ref{table:mag3}. % sklic: table:mag3
 
 \begin{table}[htbp]
     \centering
@@ -82,15 +82,16 @@ Primer magičnega kvadrata reda 3 je prikazan v tabeli ??. % sklic: table:mag3
 %   4 & 9 & 2 \\\hline
 % Konec magičnega kvadrata
 
-% \begin{definicija}
+\begin{definicija}
    Magični kvadrat reda \(n\) je \emph{normalen}, če v njem nastopajo števila
    \begin{equation}
+      \label{eq:numbers}
       % oznaka: eq:numbers
       1, 2, 3, \ldots, n^2-1, n^2.
    \end{equation}
-% \end{definicija}
+\end{definicija}
 
-Magični kvadrat v tabeli ?? je normalen.
+Magični kvadrat v tabeli \ref{table:mag3} je normalen.
 To je tudi najmanjši netrivialen normalen magični kvadrat.
 Poleg normalnih magičnih kvadratov so zanimivi tudi magični kvadrati praštevil. % sklic: table:mag3
 
@@ -124,7 +125,7 @@ obliki magičnega kvadrata reda 3. Ta je v bistvu enak kot kvadrat
 Lo Shu, vendar je vsako število povečano za 19.
 
 Z magičnimi kvadrati so se ukvarjali tudi najbolj znani matematiki kot na
-primer Euler, glej ???. % ključ: euler
+primer Euler, glej \cite{euler}. % ključ: euler
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -159,65 +160,76 @@ in zato kvadrat ni normalen.
 
 \section{Osnovne lastnosti}
 
-% \begin{definicija}
+\begin{definicija}
       Vsoto ene vrstice, enega stolpca ali ene od glavnih diagonal
       v magičnem kvadratu imenujemo \emph{magična konstanta}.
-% \end{definicija}
+\end{definicija}
 
 % Začetek okolja izrek
-   Magična konstanta normalnega magičnega kvadrata reda !!
+   Magična konstanta normalnega magičnega kvadrata reda \(n\)
    je enaka
    \begin{equation}
+      \label{eq:mc}
       % oznaka: eq:mc
       % Okolje `equation` je že prikazni matematični način,
       % zato tu izraz vpišite brez `\[` in `\]`.
-      !!
+      \mathcal{M}_{2}(n) = \frac{1}{2}n(n^{2}+1)
    \end{equation}
 % Konec okolja izrek
 
 % Začetek dokaza
+\begin{dokaz}
+
    V normalnem magičnem kvadratu reda \(n\) je vsota vseh nastopajočih
-   števil (glej ?? na strani ??) enaka
-   !!. Ker imamo
+   števil (glej (\ref{eq:numbers}) na strani \pageref{eq:numbers}) enaka
+   \(1+2+3+\dots+n^2 = \sum_{k=1}^{n^2} k = \frac{1}{2}n^2(n^2+1)\). Ker imamo
    v kvadratu \(n\) vrstic z enako vsoto, je vsota števil v eni vrstici
    enaka številu \(M_2(n)\). % sklica: eq:numbers, eq:numbers
+\end{dokaz}
 % Konec dokaza
 
-Preprost račun pokaže, da je konstanti ?? analogna konstanta
+Preprost račun pokaže, da je konstanti (\ref{eq:mc}) analogna konstanta
 \(M_2(n;A,D)\) za magični kvadrat, v katerem so nameščena števila
 \(A\), \(A+D\), \(A+2D\), \ldots, \(A+(n^2-1)D\), enaka % sklic: eq:mc
-!!
+\[
+\mathcal{M}_{2}(n;A,D) = \frac{1}{2}n(2A+D(n^{2}-1))
+\]
 
-% \begin{definicija}
+\begin{definicija}
       Če vsako od števil v normalnem magičnem kvadratu reda \(n\) odštejemo
-      od števila !!, dobimo nov magični kvadrat, ki je prvotnemu
+      od števila \(n^2+1\), dobimo nov magični kvadrat, ki je prvotnemu
       \emph{komplementaren}.
-% \end{definicija}
+\end{definicija}
 
-% \begin{definicija}
+\begin{definicija}
       Pravimo, da sta dva magična kvadrata \emph{različna}, če enega ni mogoče dobiti
       iz drugega s pomočjo zasukov oziroma zrcaljenj.
-% \end{definicija}
+\end{definicija}
 
-Števila različnih normalnih magičnih kvadratov se nahajajo v tabeli ??.
+Števila različnih normalnih magičnih kvadratov se nahajajo v tabeli \ref{table:stevila}.
 % sklic: table:stevila
 
-% - napis nad tabelo: Število različnih normalnih magičnih kvadratov
-% - oznaka: table:stevila
-% Začetek tabele
-      točna vrednost približek
-      red 1 2 3 4 5 6
-      % Decimalno vejico v matematičnem načinu zapišite kot {,},
-      % sicer jo LaTeX izpiše kot ločilo, s presledkom za njo.
-      število kvadratov 1 0 1 880 275305224 !!
+
+\begin{table}[htbp]
+    \centering
+    \caption{Število različnih normalnih magičnih kvadratov}
+    \label{table:stevila}
+    \begin{tabular}{|l|*{6}{c|}c|}
+        \hline
+        točna vrednost približek
+        red & 1 & 2 & 3 & 4 & 5 & 6 \\\hline
+        število kvadratov & 1 & 0 & 1 & 880 & 275305224 & \((1{,}7745\pm0{,}0016)\cdot 10^{19}\) \\\hline
+    \end{tabular}
+\end{table}
+
 % Konec tabele
 
 Vse normalne magične kvadrate reda 4 je oštevilčil Frénicle de Bessy
-leta 1693, glej ???, in jih je moč najti v knjigi ???
+leta 1693, glej \cite{bessy}, in jih je moč najti v knjigi \cite{berlekamp}
 iz leta 1982. Število normalnih kvadratov reda 5 je izračunal
-R. Schroeppel leta 1973 (glej Gardner ???).
+R. Schroeppel leta 1973 (glej Gardner \cite{gardner}).
 Natančno število vseh različnih normalnih magičnih kvadratov reda 6 ni znano.
-Avtorja navedenega približka sta Pinn in Wieczerkowski (glej ???), ki
+Avtorja navedenega približka sta Pinn in Wieczerkowski (glej \cite{pinn}), ki
 sta za oceno uporabila simulacijo Monte Carlo in metode statistične mehanike.
  % ključi: bessy, berlekamp, gardner, pinn
 
@@ -225,6 +237,14 @@ sta za oceno uporabila simulacijo Monte Carlo in metode statistične mehanike.
 
 \newpage
 
+% Bibliografija
+\begin{thebibliography}{99}
+\bibitem{berlekamp} E. R. BERLEKAMP, J. H. CONWAY, AND R. K. GUY, \emph{Games in particular}, in Winning Ways for Your Mathematical Plays, vol. 2, Academic Press, London, 1982.
+\bibitem{bessy} B. F. DE BESSY, \emph{Des quarrez magiques}, De l'imprimerie Royale par Jean Anisson, Paris, 1693.
+\bibitem{euler} L. EULER, \emph{De quadratis magicis}, Commentationes arithmeticae, 2 (1849), pp. 593--602.
+\bibitem{gardner} M. GARDNER, \emph{Mathematical games}, Scientific American, 234 (1976), pp. 118--122.
+\bibitem{pinn} K. PINN AND C. WIECZERKOWSKI, \emph{Number of magic squares from parallel tempering monte carlo}, Int. J. Mod. Phys. C, 9 (1998), pp. 541--547.
+\end{thebibliography}
 % Tu vstavite bibliografijo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
